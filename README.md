@@ -13,35 +13,35 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 4. To check is the installation was successful, go to the `angular.json` and check the property `builder` under `architect → build`, should be `“builder”: “ngx-build-plus:browser”`
 
-5. Let’s delete the bootstrap property in the @NgModule declaration`, add the AppComponent to entryComponents, and add the custom element in ~/src/app/app.module.ts.  
-```TSX
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, DoBootstrap, Injector } from '@angular/core';
-import { createCustomElement } from '@angular/elements';
+5. Let’s delete the bootstrap property in the `@NgModule` declaration, add the AppComponent to entryComponents, and add the custom element in ~/src/app/app.module.ts.  
+    ```TSX
+    import { BrowserModule } from '@angular/platform-browser';
+    import { NgModule, DoBootstrap, Injector } from '@angular/core';
+    import { createCustomElement } from '@angular/elements';
 
-import { AppComponent } from './app.component';
+    import { AppComponent } from './app.component';
 
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
-  entryComponents: [
-    AppComponent
-  ]
-})
-export class AppModule implements DoBootstrap {
-  constructor(private injector: Injector) { }
-  ngDoBootstrap() {
-    const external = createCustomElement(AppComponent, { injector: this.injector });
-    customElements.define('external-custom-element', external);
-  }
-}
+    @NgModule({
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule
+    ],
+    providers: [],
+    entryComponents: [
+        AppComponent
+    ]
+    })
+    export class AppModule implements DoBootstrap {
+    constructor(private injector: Injector) { }
+    ngDoBootstrap() {
+        const external = createCustomElement(AppComponent, { injector: this.injector });
+        customElements.define('external-custom-element', external);
+    }
+    }
 
-```
+    ```
 
 6. In order to be able to use the `AppComponent` with ng serve and develop normally, you have to delete the bootstrap property in the `@NgModule` declaration in `~/src/app/app.module.ts`. 
 
