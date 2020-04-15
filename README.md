@@ -1,8 +1,8 @@
 # NgDashboardWidget
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
 
-# Creating a Angular Web Component with Ngx-build-plus
-1. Creating a new project {project-name}  
+# Creating a Angular Custom Element with Ngx-build-plus
+1. Creating a new custom element project  
 `ng new ng-dashboard-widget`
 
 2. When the terminal ask us to add **Would you like to add Angular routing?**, we choose No.  
