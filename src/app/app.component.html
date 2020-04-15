@@ -1,24 +1,19 @@
 <div class="card" style="margin-bottom:10px;">
-    <div class="header">
-      <h1 class="title">External</h1>
-    </div>
-    <div class="content">
-      <div style="height:200px;">
-        <br>
-        <table class="table table-contensed">
-          <tr>
-            <td>A</td>
-            <td>{{a}}</td>
-          </tr>
-          <tr>
-            <td>B</td>
-            <td>{{b}}</td>
-          </tr>
-          <tr>
-            <td>C</td>
-            <td>{{c}}</td>
-          </tr>
-        </table>
+  <div class="header">
+    <h3 class="title">External</h3>
+  </div>
+  <div class="content">
+    <div style="height:200px; width: 200px;">
+      <br>
+      <div style="position: relative; height:150px; width:150px">
+        <canvas baseChart
+          [data]="pieChartData" 
+          [labels]="pieChartLabels" 
+          [chartType]="pieChartType"
+          [options]="pieChartOptions" 
+          [legend]="pieChartLegend">
+        </canvas>
       </div>
     </div>
   </div>
+</div>

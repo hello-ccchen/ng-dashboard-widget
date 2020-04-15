@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, DoBootstrap, Injector } from '@angular/core';
 import { createCustomElement } from '@angular/elements';
 
+import { ChartsModule } from 'ng2-charts';
+
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -9,7 +11,8 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ChartsModule
   ],
   providers: [],
   entryComponents: [
