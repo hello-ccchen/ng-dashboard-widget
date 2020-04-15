@@ -1,27 +1,87 @@
 # NgDashboardWidget
-
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
 
-## Development server
+# Creating a Angular Web Component with Ngx-build-plus
+1. Creating a new project {project-name}  
+`ng new ng-dashboard-widget`
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+2. When the terminal ask us to add **Would you like to add Angular routing?**, we choose No.  
 
-## Code scaffolding
+3. We’re going to add the @angular/elements and ngx-build-plus.  
+`ng add @angular/elements`  
+`ng add ngx-build-plus`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+4. To check is the installation was successful, go to the `angular.json` and check the property `builder` under `architect → build`, should be `“builder”: “ngx-build-plus:browser”`
 
-## Build
+5. Let’s delete the bootstrap property in the @NgModule declaration`, add the AppComponent to entryComponents, and add the custom element in ~/src/app/app.module.ts.  
+```TSX
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule, DoBootstrap, Injector } from '@angular/core';
+import { createCustomElement } from '@angular/elements';
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+import { AppComponent } from './app.component';
 
-## Running unit tests
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule
+  ],
+  providers: [],
+  entryComponents: [
+    AppComponent
+  ]
+})
+export class AppModule implements DoBootstrap {
+  constructor(private injector: Injector) { }
+  ngDoBootstrap() {
+    const external = createCustomElement(AppComponent, { injector: this.injector });
+    customElements.define('external-custom-element', external);
+  }
+}
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
 
-## Running end-to-end tests
+6. In order to be able to use the `AppComponent` with ng serve and develop normally, you have to delete the bootstrap property in the `@NgModule` declaration in `~/src/app/app.module.ts`. 
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+7. Run the command to generate the build.  
+`ng build --prod --output-hashing none --single-bundle true`
 
-## Further help
+8. To test our component, let’s install `http-server`  
+`npm i -g http-server`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+    1. In the folder dist/ng-dashboard-widget modify the index.html, adding the zone.min.js needed to run angular, webcomponents-bundle.js and custom-elements-es5-adapter.js, and polyfill.js to make it cross browser compatible.    
+
+        ```HTML
+        <!doctype html>
+        <html lang="en">
+        <head>
+            <meta charset="utf-8">
+            <title>NgDashboardWidget</title>
+            <base href="/">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="icon" type="image/x-icon" href="favicon.ico">
+        </head>
+        <body>
+            <external-custom-element></external-custom-element>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.4.4/polyfill.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.2.10/webcomponents-bundle.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/zone.js/0.9.1/zone.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.2.10/custom-elements-es5-adapter.js"></script>
+
+            <script type="text/javascript" src="main-es5.js"></script>
+        </body>
+        </html>
+        ```   
+        2. Start the server.  
+        `http-server ./dist/ng-dashboard-widget -p 8081`
+
+9. Now let’s change the build files from `main-es5.js` to `{project-name}-bundle.js.` and put it into another [angular project](https://github.com/ccchen1991/ng-dashboard-shell/tree/master/src/assets) to test our micro front with Angular Element  
+
+# References
+* [Link 1](https://dzone.com/articles/build-micro-front-ends-using-angular-elements-the)
+* [Link 2](https://medium.com/@het/micro-front-end-with-angular-elements-web-components-c56b7a235bcb)
+* [Link 3](https://github.com/manfredsteyer/ngx-build-plus#advanced-example-externals-and-angular-elements)
+* [Link 4](https://www.angulararchitects.io/aktuelles/your-options-for-building-angular-elements/)
