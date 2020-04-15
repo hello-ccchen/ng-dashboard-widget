@@ -75,8 +75,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
         </body>
         </html>
         ```   
-        2. Start the server.  
-        `http-server ./dist/ng-dashboard-widget -p 8081`
+    2. Start the server.  
+    `http-server ./dist/ng-dashboard-widget -p 8081`
 
 9. Now let’s change the build files from `main-es5.js` to `{project-name}-bundle.js.` and put it into another [angular project](https://github.com/ccchen1991/ng-dashboard-shell/tree/master/src/assets) to test our micro front with Angular Element  
 
