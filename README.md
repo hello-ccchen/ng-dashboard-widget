@@ -41,14 +41,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
     }
 
     ```
-
-6. Run the command to generate the build.  
-`ng build --prod --output-hashing none --single-bundle true`
-
-7. To test our component, let’s install `http-server`  
-`npm i -g http-server`
-
-    1. In the folder `dist/ng-dashboard-widget` modify the index.html, adding the `zone.min.js` needed to run angular, `webcomponents-bundle.js` and `custom-elements-es5-adapter.js`, and `polyfill.js` to make it cross browser compatible.    
+6. Modify the index.html, adding the `zone.min.js` needed to run angular, `webcomponents-bundle.js` and `custom-elements-es5-adapter.js`, and `polyfill.js` to make it cross browser compatible.    
 
         ```HTML
         <!doctype html>
@@ -72,10 +65,15 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
         </body>
         </html>
         ```   
-    2. Start the server.  
+7. Run the command to generate the build.  
+`ng build --prod --output-hashing none --single-bundle true`
+
+8. To test our component, let’s install `http-server`  
+`npm i -g http-server`
+    1. Start the server.  
     `http-server ./dist/ng-dashboard-widget -p 8081`
 
-8. Now let’s change the build files from `main-es5.js` to `{project-name}-bundle.js.` and put it into another [angular project](https://github.com/ccchen1991/ng-dashboard-shell/tree/master/src/assets) to test our micro front with Angular Element  
+9. Now let’s change the build files from `main-es5.js` to `{project-name}-bundle.js.` and put it into another [angular project](https://github.com/ccchen1991/ng-dashboard-shell/tree/master/src/assets) to test our micro front with Angular Element  
 
 # References
 * [Link 1](https://dzone.com/articles/build-micro-front-ends-using-angular-elements-the)
