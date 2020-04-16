@@ -41,7 +41,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
     }
 
     ```
-6. Modify the index.html, adding the `zone.min.js` needed to run angular, `webcomponents-bundle.js` and `custom-elements-es5-adapter.js`, and `polyfill.js` to make it cross browser compatible.    
+6. Modify the index.html, adding the angular element tag (in this case the tag name is `external-custom-element`) and `zone.min.js` needed to run angular, `webcomponents-bundle.js` and `custom-elements-es5-adapter.js`, and `polyfill.js` to make it cross browser compatible.    
 
     ```HTML
     <!doctype html>
