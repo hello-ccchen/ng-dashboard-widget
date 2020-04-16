@@ -80,3 +80,4 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 * [Link 2](https://medium.com/@het/micro-front-end-with-angular-elements-web-components-c56b7a235bcb)
 * [Link 3](https://github.com/manfredsteyer/ngx-build-plus#advanced-example-externals-and-angular-elements)
 * [Link 4](https://www.angulararchitects.io/aktuelles/your-options-for-building-angular-elements/)
+* [Link 5](https://blog.bitsrc.io/using-angular-elements-why-and-how-part-1-35f7fd4f0457)
