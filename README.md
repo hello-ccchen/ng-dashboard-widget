@@ -43,28 +43,28 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
     ```
 6. Modify the index.html, adding the `zone.min.js` needed to run angular, `webcomponents-bundle.js` and `custom-elements-es5-adapter.js`, and `polyfill.js` to make it cross browser compatible.    
 
-        ```HTML
-        <!doctype html>
-        <html lang="en">
-        <head>
-            <meta charset="utf-8">
-            <title>NgDashboardWidget</title>
-            <base href="/">
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-            <link rel="icon" type="image/x-icon" href="favicon.ico">
-        </head>
-        <body>
-            <external-custom-element></external-custom-element>
+    ```HTML
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>NgDashboardWidget</title>
+        <base href="/">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+    </head>
+    <body>
+        <external-custom-element></external-custom-element>
 
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.4.4/polyfill.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.2.10/webcomponents-bundle.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/zone.js/0.9.1/zone.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.2.10/custom-elements-es5-adapter.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.4.4/polyfill.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.2.10/webcomponents-bundle.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/zone.js/0.9.1/zone.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.2.10/custom-elements-es5-adapter.js"></script>
 
-            <script type="text/javascript" src="main-es5.js"></script>
-        </body>
-        </html>
-        ```   
+        <script type="text/javascript" src="main-es5.js"></script>
+    </body>
+    </html>
+    ```   
 7. Run the command to generate the build.  
 `ng build --prod --output-hashing none --single-bundle true`
 
