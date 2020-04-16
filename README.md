@@ -13,7 +13,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 4. To check is the installation was successful, go to the `angular.json` and check the property `builder` under `architect → build`, should be `“builder”: “ngx-build-plus:browser”`
 
-5. Let’s delete the bootstrap property in the `@NgModule` declaration, add the AppComponent to entryComponents, and add the custom element in ~/src/app/app.module.ts.  
+5. Let’s delete the bootstrap property in the `@NgModule` declaration, and add the custom element in ~/src/app/app.module.ts.  
     ```TSX
     import { BrowserModule } from '@angular/platform-browser';
     import { NgModule, DoBootstrap, Injector } from '@angular/core';
@@ -29,9 +29,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
         BrowserModule
     ],
     providers: [],
-    entryComponents: [
-        AppComponent
-    ]
+    bootstrap: [],
+    entryComponents: []
     })
     export class AppModule implements DoBootstrap {
     constructor(private injector: Injector) { }
