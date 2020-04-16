@@ -31,7 +31,7 @@ export class BarChartComponent implements OnInit {
     }
   };
   public barChartLabels: Label[] = ['A', 'B', 'C'];
-  public barChartType: ChartType = 'horizontalBar';
+  public barChartType: ChartType = 'bar';
   public barChartLegend = false;
   public barChartData: ChartDataSets[];
 
