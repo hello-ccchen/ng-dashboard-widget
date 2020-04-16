@@ -1,0 +1,17 @@
+<div class="card card-container">
+    <div class="card-header">
+      <h3 class="title">Pie Chart</h3>
+    </div>
+    <div class="card-body">
+      <div class="chart-container">
+          <canvas baseChart 
+            class="chart"
+            [data]="pieChartData"
+            [labels]="pieChartLabels"
+            [chartType]="pieChartType"
+            [options]="pieChartOptions"
+            [legend]="pieChartLegend">
+          </canvas>
+      </div>
+    </div>
+  </div>

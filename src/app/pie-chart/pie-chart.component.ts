@@ -4,10 +4,10 @@ import { ChartType, ChartOptions } from 'chart.js';
 import { Label } from 'ng2-charts';
 
 @Component({
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './pie-chart.component.html',
+  styleUrls: ['./pie-chart.component.css']
 })
-export class AppComponent implements OnInit {
+export class PieChartComponent implements OnInit {
   @Input() a: number;
   @Input() b: number;
   @Input() c: number;
@@ -31,7 +31,8 @@ export class AppComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.pieChartData = [this.a, this.b, this.c];
   }
+
 }

@@ -4,25 +4,34 @@ import { createCustomElement } from '@angular/elements';
 
 import { ChartsModule } from 'ng2-charts';
 
-import { AppComponent } from './app.component';
+import { BarChartComponent } from './bar-chart/bar-chart.component';
+import { PieChartComponent } from './pie-chart/pie-chart.component';
+import { TableComponent } from './table/table.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
     BrowserModule,
     ChartsModule
   ],
+  declarations: [
+    BarChartComponent,
+    PieChartComponent,
+    TableComponent
+  ],
   providers: [],
-  entryComponents: [
-    AppComponent
-  ]
+  bootstrap: [],
+  entryComponents: []
 })
 export class AppModule implements DoBootstrap {
   constructor(private injector: Injector) { }
   ngDoBootstrap() {
-    const external = createCustomElement(AppComponent, { injector: this.injector });
-    customElements.define('external-custom-element', external);
+    const pieChart = createCustomElement(PieChartComponent, { injector: this.injector });
+    customElements.define('pie-chart', pieChart);
+
+    const barChart = createCustomElement(BarChartComponent, { injector: this.injector });
+    customElements.define('bar-chart', barChart);
+
+    const table = createCustomElement(TableComponent, { injector: this.injector });
+    customElements.define('custom-table', table);
   }
 }

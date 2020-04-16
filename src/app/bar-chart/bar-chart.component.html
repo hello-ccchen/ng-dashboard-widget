@@ -1,0 +1,17 @@
+<div class="card card-container">
+    <div class="card-header">
+        <h3 class="title">Bar Chart</h3>
+    </div>
+    <div class="card-body">
+        <div class="chart-container">
+            <canvas baseChart
+                class="chart"
+                [datasets]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [legend]="barChartLegend"
+                [chartType]="barChartType">
+            </canvas>
+          </div>
+    </div>
+</div>
